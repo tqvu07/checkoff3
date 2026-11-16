@@ -1,3 +1,8 @@
+/* Run with 
+gcc -std=c11 -O0 -fno-inline -fno-omit-frame-pointer -fno-stack-protector 02_stack_reuse_vuln.c -o stack_reuse
+./stack_reuse
+*/
+
 #include <stdio.h>
 
 __attribute__((noinline))
