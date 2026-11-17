@@ -1,3 +1,5 @@
 # Uninitialized Memory in C: Undefined Behavior, Stack Reuse, and Security Risks
 
 In C, allocating and initializing memory are two completely separate operations. Though manual memory management fundamentals typically focus on allocating with the malloc() command, avoiding memory leaks, and preventing double frees, reading memory before assigning it an actual valid value introduces an undefined behavior. Since C prioritizes execution speed and direct hardware control over automatic safety checks, neither stack frames or recycles heap blocks are cleared before reuse.
+
+This repository explores how uninitialized reads can occur in stack and heap storage, why residual bytes remain physically present in memory after a function or object's lifetime ends, and how those leftover bytes can create real world security vulnerabilities. For example information disclosure (leaked passwords, tokens, or pointers) and logic hijacking (uninitialized control flags altering program flow). Finally, it also demonstrates practical habits to reduce this by using explicit initialization (= {0}, calloc()), compiler warnings (-Wall -Wextra), and dynamic runtime checks with Valgrind.
